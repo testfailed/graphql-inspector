@@ -66,7 +66,7 @@ Yes, GraphQL Inspector can also do that, here's the pattern:
 - `ref` - can be name of a branch or commit sha
 - `path/to/file` - where Inspector can find the graphql file
 
-For example, we want to fetch a .graphql file from master branch of [this sample repository](https://github.com/kamilkisiela/graphql-inspector-example/blob/master/schema.graphql):
+For example, we want to fetch a .graphql file from master branch of <span style={{textDecoration: 'underline'}}>[this sample repository](https://github.com/kamilkisiela/graphql-inspector-example/blob/master/schema.graphql)</span>:
 
     github:kamilkisiela/graphql-inspector-example#master:./schema.graphql --token 'github-token-here'
 
@@ -74,4 +74,4 @@ For example, we want to fetch a .graphql file from master branch of [this sample
 
 ## Programmatic API
 
-If you are using programmatic API, you might find `@graphql-tools/load` package useful for loading schemas. Learn more [here](https://www.graphql-tools.com/docs/schema-loading).
+If you are using programmatic API, you might find `@graphql-tools/load` package useful for loading schemas. Learn more <span style={{textDecoration: 'underline'}}>[here](https://www.graphql-tools.com/docs/schema-loading)</span>.

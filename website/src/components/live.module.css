@@ -58,6 +58,19 @@
   padding-left: 70px;
 }
 
+.liveContent {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.live {
+  background-color: #000;
+  padding: 25px 0;
+  width: 100%;
+}
+
+
+
 @media only screen and (min-width: 996px) {
   .featureContent.reversed > .featureImage > * {
     width: 80%;

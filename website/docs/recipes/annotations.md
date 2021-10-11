@@ -6,7 +6,7 @@ GitHub offers in-code annotations and GraphQL Inspector, both App and Action ena
 
 It's a nice and clean way to understand what have really changed, how it looked before and after.
 
-![Annotations](/img/cli/github.jpg)
+![Annotations](/assets/img/cli/github.jpg)
 
 ## Disabling annotations
 

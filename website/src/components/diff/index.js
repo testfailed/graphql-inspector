@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {MonacoDiffEditor} from 'react-monaco-editor';
+import React, {useEffect, useRef, useState} from 'react';
 import {buildSchema} from 'graphql';
 import {diff} from '@graphql-inspector/core';
 import styles from './index.module.css';
 import FlipMove from 'react-flip-move';
 
 import Change from './Change';
+import {DiffEditor, DiffOnMount} from '@monaco-editor/react';
 
 const oldSchemaString = `
   type Post {
@@ -36,43 +36,55 @@ const newSchemaString = `
 const oldSchema = buildSchema(oldSchemaString);
 
 export default function Diff() {
-  const [code, setCode] = useState(newSchemaString);
-  const [changes, setChanges] = useState([]);
+    const diffRef = useRef(null)
+    const [code, setCode] = useState(newSchemaString);
+    const [changes, setChanges] = useState([]);
 
-  useEffect(async () => {
-    try {
-      setChanges(await diff(oldSchema, buildSchema(code)));
-    } catch (e) {
-      console.error(e);
+    useEffect(async () => {
+        try {
+            setChanges(await diff(oldSchema, buildSchema(code)));
+        } catch (e) {
+            console.error(e);
+        }
+    }, [code]);
+
+    function handleEditorChange(value, event) {
+        console.log("here is the current model value:", value);
+        diffRef.current = value.getModifiedEditor();
+        value.getModifiedEditor().onKeyUp(handleChange);
     }
-  }, [code]);
 
-  return (
-    <div className={styles.diffContainer}>
-      <MonacoDiffEditor
-        width="100%"
-        height={300}
-        language="graphql"
-        theme="vs-dark"
-        original={oldSchemaString}
-        value={code}
-        onChange={setCode}
-        options={{
-          codeLens: false,
-          lineNumbers: 'off',
-          minimap: false,
-          originalEditable: false,
-        }}
-      />
-      <FlipMove
-        className={styles.diffChanges}
-        enterAnimation="fade"
-        leaveAnimation="fade"
-      >
-        {changes.map((change, i) => (
-          <Change key={i} value={change} />
-        ))}
-      </FlipMove>
-    </div>
-  );
+    function handleChange(e) {
+        console.log("here is the current model value:", e);
+        setCode(diffRef.current.getValue());
+    }
+
+    return (
+        <div className={styles.diffContainer}>
+            <DiffEditor
+                width="100%"
+                height={300}
+                language="graphql"
+                theme="vs-dark"
+                original={oldSchemaString}
+                modified={code}
+                onMount={handleEditorChange}
+                options={{
+                    codeLens: false,
+                    lineNumbers: 'off',
+                    minimap: false,
+                    originalEditable: false
+                }}
+            />
+            <FlipMove
+                className={styles.diffChanges}
+                enterAnimation="fade"
+                leaveAnimation="fade"
+            >
+                {changes.map((change, i) => (
+                    <Change key={i} value={change}/>
+                ))}
+            </FlipMove>
+        </div>
+    );
 }

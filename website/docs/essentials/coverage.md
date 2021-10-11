@@ -4,7 +4,7 @@ title: Schema coverage
 
 Schema coverage based on documents. Find out how many times types and fields are used in your application.
 
-![Coverage](/img/cli/coverage.jpg)
+![Coverage](/assets/img/cli/coverage.jpg)
 
 ## Usage
 

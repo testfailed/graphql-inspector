@@ -4,19 +4,19 @@ title: Schema Validation
 
 Detect changes to your GraphQL Schema and prevent breaking your existing applications. With GraphQL Inspector you get a list of breaking, potentially dangerous and safe changes on every Pull Request. Integrate it with GitHub, BitBucket, GitLab or any Continous Integration.
 
-![Application](/img/github/app-action.jpg)
+![Application](/assets/img/github/app-action.jpg)
 
 ## Using GitHub Application
 
-[Install our GitHub Application](../products/github.md#detection-of-changes) to check Pull Requests and commits.
+[Install our GitHub Application](../products/github#detection-of-changes) to check Pull Requests and commits.
 
 ## Using GitHub Action
 
-[Use our GitHub Action](../products/action.md) in few steps.
+[Use our GitHub Action](../products/action) in few steps.
 
 ## Using in CI
 
-GraphQL Inspector offers a version of our CLI that is better suited for Continous Integrations. Learn more [how to use it](../products/ci.md).
+GraphQL Inspector offers a version of our CLI that is better suited for Continous Integrations. Learn more [how to use it](../products/ci).
 
 ## Using CLI
 
@@ -41,8 +41,8 @@ Run the following command:
 
 **Arguments**
 
-- [`OLD_SCHEMA`](../api/schema.md) - point to an old schema
-- [`NEW_SCHEMA`](../api/schema.md) - point to a new schema
+- [`OLD_SCHEMA`](../api/schema) - point to an old schema
+- [`NEW_SCHEMA`](../api/schema) - point to a new schema
 
 **Flags**
 

@@ -4,7 +4,7 @@ title: Find similar types
 
 Get a list of similar types in order to find duplicates.
 
-![Similar](/img/cli/similar.jpg)
+![Similar](/assets/img/cli/similar.jpg)
 
 ## Usage
 
