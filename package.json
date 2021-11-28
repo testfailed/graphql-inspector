@@ -69,7 +69,8 @@
   "workspaces": [
     "packages/*",
     "packages/commands/*",
-    "packages/loaders/*"
+    "packages/loaders/*",
+    "website"
   ],
   "lint-staged": {
     "*.{js,json,md,ts,graphql}": [

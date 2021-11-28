@@ -8,7 +8,6 @@ if (typeof window !== 'undefined') {
   }
 }
 
-
 // Default implementation, that you can customize
 function Root({ children }) {
   return (
