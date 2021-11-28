@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react';
-import { Loading } from './loading';
 import dynamic from 'next/dynamic';
+import { Loading } from './loading';
 
-const ErrorBoundary = dynamic(() => import('../components/error-boundry'), {
+const ErrorBoundary = dynamic(() => import('../components/error-boundary'), {
   ssr: false,
 });
 

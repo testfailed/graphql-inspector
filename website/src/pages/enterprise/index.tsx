@@ -5,8 +5,8 @@ import {
   HeroGradient,
   HeroIllustration,
 } from '@theguild/components';
-import { Contact } from '../../components/contact';
 import { Check } from 'react-feather';
+import { Contact } from '../../components/contact';
 import styles from './enterprise.module.css';
 
 export default function Enterprise() {

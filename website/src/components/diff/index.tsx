@@ -1,11 +1,10 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { buildSchema } from 'graphql';
 import { diff } from '@graphql-inspector/core';
-import styles from './index.module.css';
-import FlipMove from 'react-flip-move';
-
-import Change from './Change';
 import { DiffEditor } from '@monaco-editor/react';
+import FlipMove from 'react-flip-move';
+import styles from './index.module.css';
+import Change from './Change';
 
 const oldSchemaString = /* GraphQL */ `
   type Post {

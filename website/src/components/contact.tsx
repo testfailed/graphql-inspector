@@ -1,8 +1,8 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { Send } from 'react-feather';
+import { Image } from '@chakra-ui/react';
 import styles from './contact.module.css';
 import { useMutation } from '../hooks/use-graphql';
-import { Image } from '@chakra-ui/react';
 
 const ContactForm: FC<{ className: string }> = ({ className }) => {
   const [email, setEmail] = useState();
