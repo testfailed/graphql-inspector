@@ -41,7 +41,7 @@ const Root: FC = ({ children }) => {
             href: '/docs/products/action',
           },
           {
-            children: 'Continous Integration',
+            children: 'Continuous Integration',
             title: 'Learn how to use GraphQL Inspector in CI/CD',
             href: '/docs/products/ci',
           },

@@ -2,7 +2,7 @@
 title: Validate documents
 ---
 
-Validates documents against a schema and looks for deprecated usage.
+Validate documents against a schema and looks for deprecated usage.
 
 ![Validate](/assets/img/cli/validate.jpg)
 

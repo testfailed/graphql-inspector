@@ -2,7 +2,7 @@
 title: Schema Validation
 ---
 
-Detect changes to your GraphQL Schema and prevent breaking your existing applications. With GraphQL Inspector you get a list of breaking, potentially dangerous and safe changes on every Pull Request. Integrate it with GitHub, BitBucket, GitLab or any Continous Integration.
+Detect changes to your GraphQL Schema and prevent breaking your existing applications. With GraphQL Inspector you get a list of breaking, potentially dangerous and safe changes on every Pull Request. Integrate it with GitHub, BitBucket, GitLab or any Continuous Integration.
 
 ![Application](/assets/img/github/app-action.jpg)
 
@@ -16,7 +16,7 @@ Detect changes to your GraphQL Schema and prevent breaking your existing applica
 
 ## Using in CI
 
-GraphQL Inspector offers a version of our CLI that is better suited for Continous Integrations. Learn more [how to use it](../products/ci).
+GraphQL Inspector offers a version of our CLI that is better suited for Continuous Integrations. Learn more [how to use it](../products/ci).
 
 ## Using CLI
 
