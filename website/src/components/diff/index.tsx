@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { buildSchema } from 'graphql';
 import { diff } from '@graphql-inspector/core';
 import styles from './index.module.css';

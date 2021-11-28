@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy, Suspense } from 'react';
 import { Loading } from './loading';
 import dynamic from 'next/dynamic';
 
@@ -7,13 +7,13 @@ const ErrorBoundary = dynamic(() => import('../components/error-boundry'), {
 });
 
 const LiveContent = () => {
-  const Diff = React.lazy(() => import('../components/diff'));
+  const Diff = lazy(() => import('../components/diff'));
 
   return (
     <ErrorBoundary>
-      <React.Suspense fallback={<Loading color="#fff" height="300px" />}>
+      <Suspense fallback={<Loading color="#fff" height="300px" />}>
         <Diff />
-      </React.Suspense>
+      </Suspense>
     </ErrorBoundary>
   );
 };

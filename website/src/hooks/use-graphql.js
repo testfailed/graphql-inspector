@@ -1,7 +1,7 @@
-import {useState, useCallback} from 'react';
+import { useState, useCallback } from 'react';
 import fetchPonyfill from 'fetch-ponyfill';
 
-const {fetch} = fetchPonyfill();
+const { fetch } = fetchPonyfill();
 
 const endpoint = 'https://guild-ms-slack-bot.vercel.app/api/graphql';
 

@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo } from 'react';
+import { Component, ErrorInfo } from 'react';
 
 class ErrorBoundary extends Component {
   state = { hasError: false };

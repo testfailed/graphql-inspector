@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { CriticalityLevel } from '@graphql-inspector/core';
 import styles from './change.module.css';
 
@@ -8,7 +8,7 @@ const colorMap = {
   [CriticalityLevel.NonBreaking]: '#02a676',
 };
 
-export default class Change extends Component {
+class Change extends Component {
   render() {
     const { message, criticality } = this.props.value;
     const findSingleQuotes = /'([^']+)'/gim;
@@ -33,3 +33,5 @@ export default class Change extends Component {
     );
   }
 }
+
+export default Change

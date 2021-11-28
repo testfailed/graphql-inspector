@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import React from 'react';
 import { handlePushRoute } from '@guild-docs/client';
 import {
   FeatureList,

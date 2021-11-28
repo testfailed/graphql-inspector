@@ -1,7 +1,7 @@
-import React from 'react';
+import { FC } from 'react';
 import styles from './loading.module.css';
 
-export function Loading({color, height}) {
+export const Loading: FC = ({ color, height }) => {
   return (
     <div
       className={styles.loadingContainer}
@@ -13,4 +13,4 @@ export function Loading({color, height}) {
       <div>Loading...</div>
     </div>
   );
-}
+};

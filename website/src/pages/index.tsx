@@ -3,9 +3,7 @@ import {
   HeroGradient,
   HeroIllustration,
 } from '@theguild/components';
-
 import { handlePushRoute, NPMBadge } from '@guild-docs/client';
-import React from 'react';
 import { Live } from '../components/live';
 import { Contact } from '../components/contact';
 
@@ -134,7 +132,6 @@ export default function Index() {
       />
 
       <Live />
-
       <Contact />
     </>
   );
