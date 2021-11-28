@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {CriticalityLevel} from '@graphql-inspector/core';
+import React, { Component } from 'react';
+import { CriticalityLevel } from '@graphql-inspector/core';
 import styles from './change.module.css';
 
 const colorMap = {
-  [CriticalityLevel.Breaking]: '#D6231E',
-  [CriticalityLevel.Dangerous]: '#F8B500',
-  [CriticalityLevel.NonBreaking]: '#02A676',
+  [CriticalityLevel.Breaking]: '#d6231e',
+  [CriticalityLevel.Dangerous]: '#f8b500',
+  [CriticalityLevel.NonBreaking]: '#02a676',
 };
 
 export default class Change extends Component {
   render() {
-    const {message, criticality} = this.props.value;
+    const { message, criticality } = this.props.value;
     const findSingleQuotes = /'([^']+)'/gim;
     const findDoubleQuotes = /"([^"]+)"/gim;
 
@@ -27,7 +27,7 @@ export default class Change extends Component {
       >
         <div
           className={styles.changeMessage}
-          dangerouslySetInnerHTML={{__html: formatted}}
+          dangerouslySetInnerHTML={{ __html: formatted }}
         />
       </div>
     );

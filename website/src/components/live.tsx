@@ -1,7 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import styles from './live.module.css';
-const LiveContent = dynamic(() => import('../components/live-content'), { ssr: false})
+
+const LiveContent = dynamic(() => import('../components/live-content'), {
+  ssr: false,
+});
 
 export const Live = () => {
   return (
