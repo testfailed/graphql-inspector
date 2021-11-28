@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import {
   FeatureList,
   HeroGradient,
@@ -7,7 +8,7 @@ import { handlePushRoute, NPMBadge } from '@guild-docs/client';
 import { Live } from '../components/live';
 import { Contact } from '../components/contact';
 
-export default function Index() {
+const IndexPage: FC = () => {
   return (
     <>
       <HeroGradient
@@ -135,4 +136,6 @@ export default function Index() {
       <Contact />
     </>
   );
-}
+};
+
+export default IndexPage;

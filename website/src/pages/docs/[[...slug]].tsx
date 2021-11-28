@@ -28,9 +28,7 @@ export const getStaticProps: GetStaticProps = (ctx) => {
       return readMarkdownFile('docs/', getArrayParam('slug'));
     },
     ctx,
-    {
-      getRoutes,
-    },
+    { getRoutes },
   );
 };
 

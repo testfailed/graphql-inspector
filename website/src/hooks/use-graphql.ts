@@ -1,11 +1,8 @@
 import { useState, useCallback } from 'react';
-import fetchPonyfill from 'fetch-ponyfill';
 
-const { fetch } = fetchPonyfill();
+const ENDPOINT_URL = 'https://guild-ms-slack-bot.vercel.app/api/graphql';
 
-const endpoint = 'https://guild-ms-slack-bot.vercel.app/api/graphql';
-
-export function useMutation(query) {
+export function useMutation(query: string) {
   const [state, setState] = useState({
     complete: false,
     loading: false,
@@ -14,7 +11,7 @@ export function useMutation(query) {
   });
 
   const mutate = useCallback(
-    (variables) => {
+    (variables: Record<string, any>) => {
       setState({
         complete: false,
         loading: true,
@@ -22,7 +19,7 @@ export function useMutation(query) {
         error: null,
       });
 
-      fetch(endpoint, {
+      fetch(ENDPOINT_URL, {
         mode: 'no-cors',
         cache: 'no-cache',
         method: 'POST',
@@ -34,7 +31,7 @@ export function useMutation(query) {
         .then((data) => data.json())
         .then((data) => {
           if (data.errors) {
-            return Promise.reject(new Error('Try Again'));
+            throw new Error('Try Again');
           }
 
           setState({

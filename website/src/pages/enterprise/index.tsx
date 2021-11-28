@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Head from 'next/head';
 import { handlePushRoute } from '@guild-docs/client';
 import {
@@ -9,7 +10,7 @@ import { Check } from 'react-feather';
 import { Contact } from '../../components/contact';
 import styles from './enterprise.module.css';
 
-export default function Enterprise() {
+const EnterprisePage: FC = () => {
   return (
     <>
       <Head>
@@ -149,4 +150,6 @@ export default function Enterprise() {
       <Contact />
     </>
   );
-}
+};
+
+export default EnterprisePage;

@@ -1,10 +1,10 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { Send } from 'react-feather';
 import { Image } from '@chakra-ui/react';
-import styles from './contact.module.css';
 import { useMutation } from '../hooks/use-graphql';
+import styles from './contact.module.css';
 
-const ContactForm: FC<{ className: string }> = ({ className }) => {
+const ContactForm: FC = () => {
   const [email, setEmail] = useState();
   const [result, mutate] = useMutation(
     `mutation sayHi($email: String!, $project: String!) { sayHi(email: $email, project: $project) { ok } }`,
@@ -32,7 +32,7 @@ const ContactForm: FC<{ className: string }> = ({ className }) => {
   }, [result.complete, setEmail]);
 
   return (
-    <div className={className}>
+    <>
       <form className={styles.contactForm} onSubmit={onSubmit}>
         <input
           className={styles.contactInput}
@@ -62,7 +62,7 @@ const ContactForm: FC<{ className: string }> = ({ className }) => {
           </div>
         )}
       </form>
-    </div>
+    </>
   );
 };
 

@@ -29,10 +29,25 @@ module.exports = {
           'next-i18next.config.js',
           'src/pages/_document.tsx',
           'src/pages/_app.tsx',
+          'src/pages/index.tsx',
+          'src/pages/enterprise/index.tsx',
+          'src/pages/docs/[[...slug]].tsx',
         ],
       },
     ],
-    'import/order': ['error', { groups: ['builtin', 'external', 'internal'] }],
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: './*.css',
+            group: 'unknown',
+            position: 'after',
+          },
+        ],
+      },
+    ],
   },
   overrides: [
     {

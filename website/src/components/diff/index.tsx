@@ -3,8 +3,8 @@ import { buildSchema } from 'graphql';
 import { diff } from '@graphql-inspector/core';
 import { DiffEditor } from '@monaco-editor/react';
 import FlipMove from 'react-flip-move';
-import styles from './index.module.css';
 import Change from './Change';
+import styles from './index.module.css';
 
 const oldSchemaString = /* GraphQL */ `
   type Post {

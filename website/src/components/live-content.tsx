@@ -11,7 +11,7 @@ const LiveContent = () => {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<Loading color="#fff" height="300px" />}>
+      <Suspense fallback={<Loading color="#fff" height={300} />}>
         <Diff />
       </Suspense>
     </ErrorBoundary>
