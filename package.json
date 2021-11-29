@@ -77,7 +77,7 @@
     "website"
   ],
   "lint-staged": {
-    "*.{js,json,md,ts,graphql}": [
+    "*.{js,jsx,mjs,json,md,mdx,ts,tsx,graphql,gql,yaml,yml}": [
       "prettier --write",
       "git add"
     ]
