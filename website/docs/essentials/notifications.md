@@ -28,7 +28,7 @@ notifications:
 ### Using with environments
 
 Notifications are highly customizable.
-You're able to have a setup where every schema change on any of your enironments is sent via webhook.
+You're able to have a setup where every schema change on any of your environments is sent via webhook.
 To reduce the noise, you can setup Slack notifications only for Production environment.
 
 ```yaml

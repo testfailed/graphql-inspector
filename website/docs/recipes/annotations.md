@@ -29,7 +29,7 @@ env:
     diff:
       annotations: false
 
-# Or globbaly
+# Or globally
 
 diff:
   annotations: false

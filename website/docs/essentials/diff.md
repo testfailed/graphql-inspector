@@ -58,7 +58,7 @@ Run the following command:
 A list of all differences between two schemas.
 GraphQL Inspector defines three kinds of changes:
 
-- Non breaking change
+- Non-breaking change
 - Dangerous Change
 - Breaking change
 
@@ -70,7 +70,7 @@ Compare your local schema against a remote server:
 
     graphql-inspector diff https://api.com/graphql schema.graphql
 
-Compare your local schema against a schema on a master branch (github):
+Compare your local schema against a schema on a master branch (GitHub):
 
     graphql-inspector diff github:user/repo#master:schema.graphql schema.graphql
 
@@ -86,7 +86,7 @@ Turns every dangerous change to be a breaking change.
 
 **suppressRemovalOfDeprecatedField**
 
-Every removal of a deprecated field is considered as a breaking change. With that flag you can turn it into a dangerous change so it won't fail a process or a CI check.
+Every removal of a deprecated field is considered as a breaking change. With that flag you can turn it into a dangerous change, so it won't fail a process or a CI check.
 
     graphql-inspector diff https://api.com/graphql schema.graphql --rule suppressRemovalOfDeprecatedField
 
@@ -125,7 +125,7 @@ Decides if a breaking change are in fact breaking, based on real usage of schema
 
 Example `check-usage.js` file:
 
-```javascript
+```js
 const BREAKING = false;
 const NOT_BREAKING = true;
 
@@ -148,9 +148,8 @@ It's possible to write your own rules.
 
 First, you need a module:
 
-```javascript
+```js
 // custom-rule.js
-
 module.exports = ({changes}) => {
   return changes.filter(myCustomFilter);
 };

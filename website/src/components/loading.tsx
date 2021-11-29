@@ -6,13 +6,7 @@ export const Loading: FC<{ color: string; height: number }> = ({
   height,
 }) => {
   return (
-    <div
-      className={styles.loadingContainer}
-      style={{
-        color,
-        height,
-      }}
-    >
+    <div className={styles.loadingContainer} style={{ color, height }}>
       <div>Loading...</div>
     </div>
   );

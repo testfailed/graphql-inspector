@@ -8,6 +8,60 @@ import { handlePushRoute, NPMBadge } from '@guild-docs/client';
 import { Live } from '../components/live';
 import { Contact } from '../components/contact';
 
+const FEATURE_LIST = [
+  {
+    title: 'Works with GitHub',
+    description: `Start using our GitHub Application, setup everything within few clicks. Using GitHub workflows? Try out the GitHub Action.`,
+    image: {
+      src: 'assets/img/illustrations/github.png',
+      alt: 'Github',
+    },
+    link: {
+      children: 'View source code',
+      title: 'View source code',
+      target: '_blank',
+      href: 'https://github.com/kamilkisiela/graphql-inspector',
+    },
+  },
+  {
+    title: 'Continuous Integrations',
+    description: `GraphQL Inspector can be used in any Continuous Integration service. Use our modularized, CI suited version of CLI.`,
+    image: { src: 'assets/img/illustrations/result.png', alt: 'Ci' },
+    link: {
+      children: 'Learn more',
+      title: 'How to use GraphQL Inspector in CI/CD',
+      href: '/docs/products/ci',
+    },
+  },
+  {
+    title: 'Command-Line',
+    description: `GraphQL Inspector offers a CLI that lets you analyze your GraphQL API but also client-side applications.`,
+    image: {
+      src: 'assets/img/illustrations/typewriter.png',
+      alt: 'cli',
+    },
+    link: {
+      children: 'Lean more',
+      title: 'Learn how to use GraphQL Inspector CLI',
+      href: '/docs/essentials/diff',
+    },
+  },
+  {
+    title: 'Entirely Open Source',
+    description: `Our codebase is publicly available on GitHub and it's easy to deploy and use your GitHub Application.`,
+    image: {
+      src: 'assets/img/illustrations/hacker-mindset.png',
+      alt: 'cli',
+    },
+    link: {
+      children: 'View source code',
+      title: 'View source code',
+      target: '_blank',
+      href: 'https://github.com/kamilkisiela/graphql-inspector',
+    },
+  },
+];
+
 const IndexPage: FC = () => {
   return (
     <>
@@ -28,66 +82,7 @@ const IndexPage: FC = () => {
         }}
       />
 
-      <FeatureList
-        title=""
-        items={[
-          {
-            title: 'Works with GitHub',
-            description:
-              'Start using our GitHub Application, setup everything within few clicks. Using GitHub workflows? Try out the GitHub Action',
-            image: {
-              src: 'assets/img/illustrations/github.png',
-              alt: 'Github',
-            },
-            link: {
-              children: 'View source code',
-              title: 'View source code',
-              target: '_blank',
-              href: 'https://github.com/kamilkisiela/graphql-inspector',
-            },
-          },
-          {
-            title: 'Continuous Integrations',
-            description:
-              'GraphQL Inspector can be used in any Continuous Integration service. Use our modularized, CI suited version of CLI.',
-            image: { src: 'assets/img/illustrations/result.png', alt: 'Ci' },
-            link: {
-              children: 'Learn more',
-              title: 'How to use GraphQL Inspector in CI/CD',
-              href: '/docs/products/ci',
-            },
-          },
-          {
-            title: 'Command-Line',
-            description:
-              'GraphQL Inspector offers a CLI that lets you analyze your GraphQL API but also client-side applications.',
-            image: {
-              src: 'assets/img/illustrations/typewriter.png',
-              alt: 'cli',
-            },
-            link: {
-              children: 'Lean more',
-              title: 'Learn how to use GraphQL Inspector CLI',
-              href: '/docs/essentials/diff',
-            },
-          },
-          {
-            title: 'Entirely Open Source',
-            description:
-              "Our codebase is publicly available on GitHub and it's easy to deploy and use your GitHub Application",
-            image: {
-              src: 'assets/img/illustrations/hacker-mindset.png',
-              alt: 'cli',
-            },
-            link: {
-              children: 'View source code',
-              title: 'View source code',
-              target: '_blank',
-              href: 'https://github.com/kamilkisiela/graphql-inspector',
-            },
-          },
-        ]}
-      />
+      <FeatureList title="" items={FEATURE_LIST} />
 
       <HeroIllustration
         title="In-Code Annotations"
@@ -133,6 +128,7 @@ const IndexPage: FC = () => {
       />
 
       <Live />
+
       <Contact />
     </>
   );

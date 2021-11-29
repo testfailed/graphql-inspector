@@ -8,18 +8,18 @@ There are few options to provide your schema in GraphQL Inspector.
 
 GraphQL Inspector accepts CommonJS and ESModules
 
-```typescript
+```ts
 // as `default`
-export default makeExecutableSchema({...});
+export default makeExecutableSchema({ ... })
 
 // as `schema` variables
-export const schema = makeExecutableSchema({...});
+export const schema = makeExecutableSchema({ ... })
 ```
 
 Or with CommonJS
 
-```javascript
-module.exports = makeExecutableSchema({...});
+```js
+module.exports = makeExecutableSchema({ ... })
 ```
 
 If you need to transpile a file, use `--require` option of the CLI:
@@ -74,4 +74,4 @@ For example, we want to fetch a .graphql file from master branch of <span style=
 
 ## Programmatic API
 
-If you are using programmatic API, you might find `@graphql-tools/load` package useful for loading schemas. Learn more <span style={{textDecoration: 'underline'}}>[here](https://www.graphql-tools.com/docs/schema-loading)</span>.
+If you are using programmatic API, you might find `@graphql-tools/load` package useful for loading schemas. Learn more <span style={{textDecoration: 'underline'}}>[here](https://graphql-tools.com/docs/schema-loading)</span>.

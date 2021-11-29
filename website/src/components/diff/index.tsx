@@ -40,11 +40,15 @@ const Diff: FC = () => {
   const [changes, setChanges] = useState<Change[]>([]);
 
   useEffect(() => {
-    const execute = async () => {
-      const changes = await diff(oldSchema, buildSchema(code));
-      setChanges(changes);
+    const run = async () => {
+      try {
+        const changes = await diff(oldSchema, buildSchema(code));
+        setChanges(changes);
+      } catch (error) {
+        console.error(error);
+      }
     };
-    execute().catch(console.error);
+    run();
   }, [code]);
 
   const handleEditorChange: OnMount = (value) => {

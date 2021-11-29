@@ -6,7 +6,7 @@ GraphQL Inspector can be used with any Continuous Integration. It's easy!
 
 ## Installation
 
-GraphQL Inspector already has CLI but we developed a more suited approach for consuming it in CI/CD.
+GraphQL Inspector already has CLI, but we developed a more suited approach for consuming it in CI/CD.
 It's called CLI for CI.
 
 Install it using yarn:
@@ -75,11 +75,11 @@ Now, when you push your changes you would see the following:
 
 > Remember, you can use any command the CLI offers.
 
-## Recommmended workflow
+## Recommended workflow
 
 We recommend to automate the workflow and use `husky` to run [`$ graphql-inspector introspect`](../essentials/introspect).
 
-```json
+```jsonc
 {
   // ...
   "scripts": {

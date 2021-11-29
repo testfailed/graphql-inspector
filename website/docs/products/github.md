@@ -47,7 +47,7 @@ schema: 'schema.graphql' # an output of `$ graphql-inspector introspect ...`
 
 It's also possible to setup everything in `package.json` (it must be placed in the root directory).
 
-```json
+```jsonc
 {
   // ...
   "graphql-inspector": {
@@ -67,7 +67,7 @@ To stay up to date with changes in your GraphQL Schema and to receive notificati
 
 ### Annotations
 
-In some cases you want to get a summary of changes but no annotations on a schema file. Annotations are enabled by default but to disabled them, please follow the instructions in ["Annotations" chapter](../recipes/annotations).
+In some cases you want to get a summary of changes but no annotations on a schema file. Annotations are enabled by default but to disable them, please follow the instructions in ["Annotations" chapter](../recipes/annotations).
 
 ### Detection of changes
 
@@ -149,11 +149,11 @@ schema: 'schema.graphql'
 endpoint: '<url>'
 ```
 
-### Recommended worflow
+### Recommended workflow
 
 We recommend to automate the generation of `schema.graphql` and use `husky` to run [`$ graphql-inspector introspect`](../essentials/introspect):
 
-```json
+```jsonc
 {
   // ...
   "scripts": {
@@ -177,4 +177,4 @@ We strongly believe in Open Source and that's why we made it possible to host yo
 
 > Under the hood, the GraphQL Inspector uses [Probot](https://probot.github.io), a bot made by GitHub team.
 
-There's a well written ["Deployment" chapter](https://probot.github.io/docs/deployment/) on Probot's documentation.
+There's a well written ["Deployment" chapter](https://probot.github.io/docs/deployment) on Probot's documentation.

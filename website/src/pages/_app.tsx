@@ -134,8 +134,7 @@ const AppContentWrapper = appWithTranslation(function TranslatedApp(appProps) {
 
 const defaultSeo: AppSeoProps = {
   title: 'GraphQL Inspector',
-  description:
-    'Validate schemas and detect changes. Receive schema change notifications. Keep Operations and Fragments consistent.',
+  description: `Validate schemas and detect changes. Receive schema change notifications. Keep Operations and Fragments consistent.`,
   logo: {
     url: 'https://graphql-inspector.com/assets/subheader-logo.png',
     width: 50,

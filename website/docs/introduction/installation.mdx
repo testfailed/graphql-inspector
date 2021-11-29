@@ -22,9 +22,9 @@ Read the ["GitHub Action"](../products/action) chapter to see the instructions.
 
 Command Line Tool with all the features, installable with a single command:
 
-Install using [`yarn`](https://yarnpkg.com/en) or [`npm`](https://www.npmjs.com/):
+Install using [`yarn`](https://yarnpkg.com/en) or [`npm`](https://npmjs.com):
 
-```bash
+```sh
 # Yarn
 yarn global add @graphql-inspector/cli graphql
 
@@ -42,9 +42,9 @@ npm install --global @graphql-inspector/cli graphql
 
 Works similar to regular CLI but every feature is pluggable to keep the size as low as possible.
 
-Install using [`yarn`](https://yarnpkg.com/en) or [`npm`](https://www.npmjs.com/):
+Install using [`yarn`](https://yarnpkg.com/en) or [`npm`](https://npmjs.com):
 
-```bash
+```sh
 # Yarn
 yarn global add @graphql-inspector/ci
 
@@ -89,18 +89,18 @@ import { diff, validate, coverage, ... } from '@graphql-inspector/core'
 
 GraphQL Inspector is also available on Docker.
 
-```bash
+```sh
 docker run kamilkisiela/graphql-inspector --help
 ```
 
 Bind volumes to `/app` for working with local files, for example:
 
-```bash
+```sh
 docker run -v $PWD:/app kamilkisiela/graphql-inspector graphql-inspector diff old.graphql new.graphql
 ```
 
 To run commands interactively inside of the container, use the following:
 
-```bash
+```sh
 docker run -it kamilkisiela/graphql-inspector
 ```

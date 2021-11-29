@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { CriticalityLevel, Criticality } from '@graphql-inspector/core';
+import { CriticalityLevel, Change } from '@graphql-inspector/core';
 import styles from './change.module.css';
 
 const ColorMap = {
@@ -11,15 +11,10 @@ const ColorMap = {
 const SINGLE_QUOTES_REGEX = /'([^']+)'/g;
 const DOUBLE_QUOTES_REGEX = /"([^"]+)"/g;
 
-export default forwardRef<
-  any,
-  {
-    value: {
-      message: string;
-      criticality: Criticality;
-    };
-  }
->(function Change({ value }, ref) {
+export default forwardRef<any, { value: Change }>(function ChangeComponent(
+  { value },
+  ref,
+) {
   const { message, criticality } = value;
 
   const formatted = message

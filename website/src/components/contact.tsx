@@ -4,22 +4,26 @@ import { Image } from '@chakra-ui/react';
 import { useMutation } from '../hooks/use-graphql';
 import styles from './contact.module.css';
 
-const ContactForm: FC = () => {
-  const [email, setEmail] = useState<string>();
-  const [result, mutate] = useMutation(/* GraphQL */ `
-    mutation sayHi($email: String!, $project: String!) {
-      sayHi(email: $email, project: $project) {
-        ok
-      }
+const SAY_HI = /* GraphQL */ `
+  mutation SayHi($email: String!) {
+    sayHi(email: $email, project: "GRAPHQL_INSPECTOR") {
+      ok
     }
-  `);
+  }
+`;
+
+const ContactForm: FC = () => {
+  const [email, setEmail] = useState('');
+  const [result, mutate] = useMutation(SAY_HI);
+
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      mutate({ email, project: 'GRAPHQL_INSPECTOR' });
+      mutate({ email });
     },
     [email, mutate],
   );
+
   const onChange = useCallback(
     (event) => {
       if (!result.loading) {
@@ -71,7 +75,7 @@ const ContactForm: FC = () => {
 export const Contact: FC = () => {
   return (
     <div className={styles.contactUsBackground} id="contact-us">
-      <div className={`${styles.contactContainer} container`}>
+      <div className={styles.contactContainer}>
         <div className={styles.contactSideBySide}>
           <div className={styles.contactMainPart}>
             <h3 className={styles.contactTitle}>Get in touch!</h3>
@@ -81,18 +85,15 @@ export const Contact: FC = () => {
                 <br /> We would love to help you and hear how you use GraphQL
                 Inspector today!
               </p>
-              <div className="contact-wrapper">
-                <ContactForm />
-              </div>
+              <ContactForm />
             </div>
           </div>
-          <div className={styles.contactMailBox}>
-            <Image
-              src="/assets/img/illustrations/mail-box.png"
-              alt="Mail Box"
-              loading="lazy"
-            />
-          </div>
+          <Image
+            className={styles.contactMailBox}
+            src="/assets/img/illustrations/mail-box.png"
+            alt="Mail Box"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
