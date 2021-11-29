@@ -1,12 +1,12 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState, KeyboardEvent } from 'react';
 import { buildSchema } from 'graphql';
-import { diff } from '@graphql-inspector/core';
-import { DiffEditor } from '@monaco-editor/react';
+import { diff, Change } from '@graphql-inspector/core';
+import { DiffEditor, OnMount } from '@monaco-editor/react';
 import FlipMove from 'react-flip-move';
-import Change from './Change';
+import ChangeComponent from './Change';
 import styles from './index.module.css';
 
-const oldSchemaString = /* GraphQL */ `
+const OLD_SCHEMA = /* GraphQL */ `
   type Post {
     id: ID!
     title: String
@@ -20,7 +20,7 @@ const oldSchemaString = /* GraphQL */ `
   }
 `;
 
-const newSchemaString = /* GraphQL */ `
+const NEW_SCHEMA = /* GraphQL */ `
   type Post {
     id: ID!
     title: String!
@@ -32,27 +32,29 @@ const newSchemaString = /* GraphQL */ `
   }
 `;
 
-const oldSchema = buildSchema(oldSchemaString);
+const oldSchema = buildSchema(OLD_SCHEMA);
 
 const Diff: FC = () => {
-  const diffRef = useRef(null);
-  const [code, setCode] = useState(newSchemaString);
-  const [changes, setChanges] = useState([]);
+  const diffRef = useRef<any>(null);
+  const [code, setCode] = useState(NEW_SCHEMA);
+  const [changes, setChanges] = useState<Change[]>([]);
 
   useEffect(() => {
-    diff(oldSchema, buildSchema(code))
-      .then((change) => setChanges(change))
-      .catch(console.error);
+    const execute = async () => {
+      const changes = await diff(oldSchema, buildSchema(code));
+      setChanges(changes);
+    };
+    execute().catch(console.error);
   }, [code]);
 
-  function handleEditorChange(value) {
+  const handleEditorChange: OnMount = (value) => {
     console.log('here is the current model value:', value);
     diffRef.current = value.getModifiedEditor();
     value.getModifiedEditor().onKeyUp(handleChange);
-  }
+  };
 
-  function handleChange(e) {
-    console.log('here is the current model value:', e);
+  function handleChange(e: KeyboardEvent<HTMLInputElement>) {
+    console.error('here is the current model value:', e);
     setCode(diffRef.current.getValue());
   }
 
@@ -63,7 +65,7 @@ const Diff: FC = () => {
         height={300}
         language="graphql"
         theme="vs-dark"
-        original={oldSchemaString}
+        original={OLD_SCHEMA}
         modified={code}
         onMount={handleEditorChange}
         options={{
@@ -79,7 +81,7 @@ const Diff: FC = () => {
         leaveAnimation="fade"
       >
         {changes.map((change, i) => (
-          <Change key={i} value={change} />
+          <ChangeComponent key={i} value={change} />
         ))}
       </FlipMove>
     </div>

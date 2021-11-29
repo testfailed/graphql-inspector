@@ -5,6 +5,8 @@
   "scripts": {
     "lint": "eslint --ignore-path ../.gitignore --ext js,jsx,cjs,mjs,ts,tsx,cts,mts .",
     "dev": "concurrently -r \"next-remote-watch ./docs ./src/pages/_app.tsx ./src/pages/_document.tsx\" \"wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000\"",
+    "build": "next build",
+    "start": "next start",
     "next": "next",
     "analyze": "cross-env ANALYZE=true next build"
   },
@@ -22,7 +24,6 @@
     "@monaco-editor/react": "^4.3.1",
     "@theguild/components": "1.8.2",
     "classnames": "2.3.1",
-    "fetch-ponyfill": "7.1.0",
     "framer-motion": "^4.1.17",
     "globby": "12.0.2",
     "next": "12.0.4",
@@ -49,14 +50,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "pnpm": {
-    "overrides": {
-      "esbuild": "^0.12.9"
-    }
-  },
-  "resolutions": {
-    "esbuild": "^0.12.9"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.0.4",

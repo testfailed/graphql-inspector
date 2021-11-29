@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import 'remark-admonitions/styles/infima.css';
-import '../../public/style.css';
 import { appWithTranslation } from 'next-i18next';
 import {
   extendTheme,
@@ -17,6 +15,8 @@ import {
 } from '@guild-docs/client';
 import { FooterExtended, Header, Subheader } from '@theguild/components';
 import type { AppProps } from 'next/app';
+import 'remark-admonitions/styles/infima.css';
+import '../../public/style.css';
 
 ExtendComponents({
   HelloWorld() {
@@ -31,6 +31,8 @@ const styles: typeof chakraTheme['styles'] = {
     },
   }),
 };
+
+const accentColor = '#1cc8ee';
 
 const theme = extendTheme({
   colors: {
@@ -47,6 +49,7 @@ const theme = extendTheme({
       850: '#1b1b1b',
       900: '#171717',
     },
+    accentColor,
   },
   fonts: {
     heading: 'TGCFont, sans-serif',
@@ -59,17 +62,16 @@ const theme = extendTheme({
   styles,
 });
 
-const accentColor = '#1cc8ee';
-
 const serializedMdx = process.env.SERIALIZED_MDX_ROUTES;
 const mdxRoutes = { data: serializedMdx && JSON.parse(serializedMdx) };
 
-function AppContent(appProps: AppProps) {
+const AppContent: FC<AppProps> = (appProps) => {
   const { Component, pageProps, router } = appProps;
   const isDocs = router.asPath.startsWith('/docs');
   const { colorMode } = useColorMode();
   const logoSrc =
     colorMode === 'light' ? 'subheader-logo.svg' : 'subheader-logo-w.svg';
+
   return (
     <>
       <Header accentColor={accentColor} activeLink="/open-source" themeSwitch />
@@ -124,7 +126,7 @@ function AppContent(appProps: AppProps) {
       <FooterExtended />
     </>
   );
-}
+};
 
 const AppContentWrapper = appWithTranslation(function TranslatedApp(appProps) {
   return <AppContent {...appProps} />;

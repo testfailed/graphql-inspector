@@ -2,21 +2,30 @@ import { useState, useCallback } from 'react';
 
 const ENDPOINT_URL = 'https://guild-ms-slack-bot.vercel.app/api/graphql';
 
-export function useMutation(query: string) {
-  const [state, setState] = useState({
-    complete: false,
-    loading: false,
-    error: null,
-    data: null,
-  });
+type State = {
+  complete: boolean;
+  loading: boolean;
+  error: string | null;
+  data: any;
+};
+
+type Mutate = (variables: Record<string, unknown>) => void;
+
+const DEFAULT_STATE = {
+  complete: false,
+  loading: false,
+  error: null,
+  data: null,
+};
+
+export function useMutation(query: string): [State, Mutate] {
+  const [state, setState] = useState<State>(DEFAULT_STATE);
 
   const mutate = useCallback(
-    (variables: Record<string, any>) => {
+    (variables) => {
       setState({
-        complete: false,
+        ...DEFAULT_STATE,
         loading: true,
-        data: null,
-        error: null,
       });
 
       fetch(ENDPOINT_URL, {

@@ -5,10 +5,14 @@ import { useMutation } from '../hooks/use-graphql';
 import styles from './contact.module.css';
 
 const ContactForm: FC = () => {
-  const [email, setEmail] = useState();
-  const [result, mutate] = useMutation(
-    `mutation sayHi($email: String!, $project: String!) { sayHi(email: $email, project: $project) { ok } }`,
-  );
+  const [email, setEmail] = useState<string>();
+  const [result, mutate] = useMutation(/* GraphQL */ `
+    mutation sayHi($email: String!, $project: String!) {
+      sayHi(email: $email, project: $project) {
+        ok
+      }
+    }
+  `);
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
@@ -32,37 +36,35 @@ const ContactForm: FC = () => {
   }, [result.complete, setEmail]);
 
   return (
-    <>
-      <form className={styles.contactForm} onSubmit={onSubmit}>
-        <input
-          className={styles.contactInput}
-          disabled={result.loading}
-          type="text"
-          value={email}
-          onChange={onChange}
-          placeholder="Type your email here"
-        />
-        <button className={styles.contactSubmit} type="submit">
-          <Send />
-        </button>
-        {result.error && (
-          <div className={`${styles.contactStatus} ${styles.error}`}>
-            Something went wrong, so please contact us directly on{' '}
-            <a
-              className={styles.contactDirectly}
-              href="mailto:kamil.kisiela@gmail.com"
-            >
-              kamil.kisiela@gmail.com
-            </a>
-          </div>
-        )}
-        {result.data && (
-          <div className={`${styles.contactStatus} ${styles.success}`}>
-            We&apos;ll contact you soon!
-          </div>
-        )}
-      </form>
-    </>
+    <form className={styles.contactForm} onSubmit={onSubmit}>
+      <input
+        className={styles.contactInput}
+        disabled={result.loading}
+        type="text"
+        value={email}
+        onChange={onChange}
+        placeholder="Type your email here"
+      />
+      <button className={styles.contactSubmit} type="submit">
+        <Send />
+      </button>
+      {result.error && (
+        <div className={`${styles.contactStatus} ${styles.error}`}>
+          Something went wrong, so please contact us directly on{' '}
+          <a
+            className={styles.contactDirectly}
+            href="mailto:kamil.kisiela@gmail.com"
+          >
+            kamil.kisiela@gmail.com
+          </a>
+        </div>
+      )}
+      {result.data && (
+        <div className={`${styles.contactStatus} ${styles.success}`}>
+          We&apos;ll contact you soon!
+        </div>
+      )}
+    </form>
   );
 };
 
