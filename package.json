@@ -41,7 +41,7 @@
     "@types/node": "14.14.45",
     "@types/yargs": "17.0.3",
     "@zeit/ncc": "0.22.3",
-    "axios": "0.21.4",
+    "axios": "0.28.0",
     "bob-the-bundler": "1.5.1",
     "graphql": "16.0.0",
     "graphql-config": "4.0.1",
@@ -63,8 +63,8 @@
     "husky": "4.3.8",
     "immer": "9.0.6",
     "lerna": "4.0.0",
-    "probot": "11.3.0",
-    "shelljs": "0.8.4"
+    "probot": "12.3.3",
+    "shelljs": "0.8.5"
   },
   "workspaces": [
     "packages/*",
